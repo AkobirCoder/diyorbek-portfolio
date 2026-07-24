@@ -1,0 +1,368 @@
+@import "tailwindcss";
+
+/* ============================================================================
+   DIZAYN TIZIMI — Diyorbek Zarifboyev · Videomaker
+   Falsafa: fon — kechki osmon, urg'u — quyosh botishi. "Qimmat, lekin arziydi."
+   Manba: BLUEPRINT.md §5–§8
+   ========================================================================== */
+
+/* ---------------------------------------------------------------------------
+   1 · SEMANTIK RANGLAR — ikki rejim (OKLCH, aniq konvertatsiya qilingan)
+   :root = qorong'i (asosiy).  [data-theme="light"] = muharrirona variant.
+   --------------------------------------------------------------------------- */
+/* Qorong'i tokenlar `[data-theme="dark"]` da ham takrorlanadi — shunda
+   yorug' rejim ichida ham bo'lim darajasida qorong'i "sahna" yaratish
+   mumkin bo'ladi (Hero har doim kinematik qorong'i). */
+:root,
+[data-theme="dark"] {
+  /* Sirtlar */
+  --bg: oklch(12.84% 0.0129 263.62);
+  --bg-elevated: oklch(16.37% 0.0182 263.88);
+  --surface: oklch(20.1% 0.0278 264.97);
+  --surface-raised: oklch(24.32% 0.0312 262.6);
+
+  /* Matn */
+  --fg: oklch(96.9% 0.0062 255.47);
+  --fg-muted: oklch(71.8% 0.0251 256.13);
+  --fg-subtle: oklch(51.03% 0.0322 258.37);
+
+  /* Urg'u — quyosh botishi */
+  --accent: oklch(70.32% 0.1968 42.55);
+  --accent-hover: oklch(73.31% 0.1744 45.35);
+  --on-accent: oklch(14% 0.02 40); /* orange ustidagi matn — to'q */
+
+  /* Ikkilamchi nur — to'q ko'k */
+  --azure: oklch(54.89% 0.2491 263.77);
+  --azure-deep: oklch(30.42% 0.1122 261.52);
+
+  /* Chegara va shisha (rejimga bog'liq) */
+  --border: oklch(100% 0 0 / 0.08);
+  --border-strong: oklch(100% 0 0 / 0.14);
+  --glass-bg-1: oklch(100% 0 0 / 0.06);
+  --glass-bg-2: oklch(100% 0 0 / 0.08);
+  --glass-bg-3: oklch(100% 0 0 / 0.12);
+  --glass-border: oklch(100% 0 0 / 0.12);
+  --glass-highlight: oklch(100% 0 0 / 0.08);
+
+  /* Nur amplitudasi (grain, glow rejimga qarab moslashadi) */
+  --grain-opacity: 0.03;
+
+  color-scheme: dark;
+}
+
+[data-theme="light"] {
+  --bg: oklch(96.13% 0.007 88.64);
+  --bg-elevated: oklch(98.5% 0.004 88);
+  --surface: oklch(100% 0 89.88);
+  --surface-raised: oklch(97% 0.005 88);
+
+  --fg: oklch(15.94% 0.0157 266.59);
+  --fg-muted: oklch(48.97% 0.0267 269.13);
+  --fg-subtle: oklch(62% 0.02 265);
+
+  --accent: oklch(59.99% 0.1905 37.88);
+  --accent-hover: oklch(55% 0.19 37);
+  --on-accent: oklch(99% 0.01 80);
+
+  --azure: oklch(39.31% 0.1683 263.71);
+  --azure-deep: oklch(30% 0.14 262);
+
+  --border: oklch(15% 0.02 265 / 0.1);
+  --border-strong: oklch(15% 0.02 265 / 0.18);
+  --glass-bg-1: oklch(100% 0 0 / 0.55);
+  --glass-bg-2: oklch(100% 0 0 / 0.65);
+  --glass-bg-3: oklch(100% 0 0 / 0.75);
+  --glass-border: oklch(15% 0.02 265 / 0.08);
+  --glass-highlight: oklch(100% 0 0 / 0.9);
+
+  --grain-opacity: 0.015;
+
+  color-scheme: light;
+}
+
+/* ---------------------------------------------------------------------------
+   2 · TAILWIND THEME — semantik tokenlarni utilitalarga bog'lash (@theme inline)
+   `inline` → utilita var()ga to'g'ridan-to'g'ri murojaat qiladi, shuning uchun
+   rejim almashganda ranglar runtime'da o'zgaradi.
+   --------------------------------------------------------------------------- */
+@theme inline {
+  /* Ranglar → bg-bg, text-fg, border-border, bg-accent, ... */
+  --color-bg: var(--bg);
+  --color-bg-elevated: var(--bg-elevated);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-fg-subtle: var(--fg-subtle);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-on-accent: var(--on-accent);
+  --color-azure: var(--azure);
+  --color-azure-deep: var(--azure-deep);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+
+  /* Shriftlar → font-sans (Inter), font-mono (JetBrains), font-display (Unbounded) */
+  --font-sans: var(--font-body);
+  --font-mono: var(--font-mono);
+  --font-display: var(--font-display);
+
+  /* Suyuq tipografik shkala (320→1600px) — text-display-1, text-h2, ... */
+  /* Kinematik fon teksturasi. Markazda qoladi (kengligi ikonkalarning
+     xavfsiz zonalariga yetmaydi), foreground sarlavha bilan raqobatlashmaydi. */
+  --text-hero-backdrop: clamp(2rem, 0.3rem + 7vw, 7rem);
+  --text-hero-backdrop--line-height: 0.9;
+  --text-hero-backdrop--letter-spacing: -0.04em;
+
+  --text-display-1: clamp(2.75rem, 1.8125rem + 4.69vw, 6.5rem);
+  --text-display-1--line-height: 0.95;
+  --text-display-1--letter-spacing: -0.03em;
+
+  --text-display-2: clamp(2.125rem, 1.53rem + 2.97vw, 4.5rem);
+  --text-display-2--line-height: 1;
+  --text-display-2--letter-spacing: -0.03em;
+
+  --text-h1: clamp(1.75rem, 1.4375rem + 1.56vw, 3rem);
+  --text-h1--line-height: 1.05;
+  --text-h1--letter-spacing: -0.02em;
+
+  --text-h2: clamp(1.375rem, 1.22rem + 0.78vw, 2rem);
+  --text-h2--line-height: 1.2;
+  --text-h2--letter-spacing: -0.015em;
+
+  --text-body-lg: clamp(1.0625rem, 1.015rem + 0.23vw, 1.25rem);
+  --text-body-lg--line-height: 1.6;
+
+  --text-body: clamp(0.9375rem, 0.906rem + 0.16vw, 1.0625rem);
+  --text-body--line-height: 1.6;
+
+  --text-label: clamp(0.6875rem, 0.672rem + 0.08vw, 0.75rem);
+  --text-label--line-height: 1;
+  --text-label--letter-spacing: 0.14em;
+
+  /* Radiuslar → rounded-glass, rounded-card */
+  --radius-card: 12px;
+  --radius-glass: 20px;
+  --radius-panel: 28px;
+
+  /* Kengaytirilgan easing → ease-expo, ease-quart */
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-quart: cubic-bezier(0.77, 0, 0.175, 1);
+
+  /* Animatsiya davomiyligi → duration-cinema, ... */
+  --animate-duration-instant: 120ms;
+
+  /* Konteyner kengligi */
+  --container-content: 1440px;
+  --container-wide: 1600px;
+}
+
+/* ---------------------------------------------------------------------------
+   3 · BAZAVIY QATLAM
+   --------------------------------------------------------------------------- */
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+    font-size: var(--text-body);
+    line-height: 1.6;
+    min-height: 100dvh;
+    /* Kirill va lotin balandligini tenglashtirish (Blueprint §6) */
+    font-synthesis-weight: none;
+  }
+
+  /* Sarlavhalar — Display shriftda faqat yengil og'irlik hashamatli ko'rinadi */
+  h1, h2, h3 {
+    font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+    font-weight: 300;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Fokus — hech qachon outline:none. Orange halqa + offset (Blueprint §10) */
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background: color-mix(in oklch, var(--accent) 30%, transparent);
+    color: var(--fg);
+  }
+
+  /* Reduced motion — global to'xtatgich (Blueprint §8) */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   4 · KOMPONENT UTILITALARI — shisha, chuqurlik, nur, grain
+   --------------------------------------------------------------------------- */
+@layer components {
+  /* --- Glassmorphism (Blueprint §5). Har birida ichki yuqori yorug'lik chizig'i,
+     bu detal arzon shishani qimmatidan ajratadi. --- */
+  .glass-1 {
+    background: var(--glass-bg-1);
+    backdrop-filter: blur(16px) saturate(140%);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+    border: 1px solid var(--glass-border);
+    box-shadow: inset 0 1px 0 var(--glass-highlight);
+  }
+  .glass-2 {
+    background: var(--glass-bg-2);
+    backdrop-filter: blur(24px) saturate(150%);
+    -webkit-backdrop-filter: blur(24px) saturate(150%);
+    border: 1px solid var(--glass-border);
+    box-shadow: inset 0 1px 0 var(--glass-highlight);
+  }
+  .glass-3 {
+    background: var(--glass-bg-3);
+    backdrop-filter: blur(40px) saturate(160%);
+    -webkit-backdrop-filter: blur(40px) saturate(160%);
+    border: 1px solid var(--glass-border);
+    box-shadow: inset 0 1px 0 var(--glass-highlight);
+  }
+
+  /* --- Chuqurlik: soya emas, nur (Blueprint §5) --- */
+  .elev-1 {
+    box-shadow: 0 1px 2px oklch(0% 0 0 / 0.4);
+  }
+  .elev-2 {
+    box-shadow: 0 8px 24px oklch(0% 0 0 / 0.5);
+  }
+  .elev-3 {
+    box-shadow:
+      0 24px 64px oklch(0% 0 0 / 0.6),
+      0 0 80px oklch(70.32% 0.1968 42.55 / 0.08);
+  }
+
+  /* --- Radial nur dog'i — Hero va bo'lim fonlari uchun qayta ishlatiladi --- */
+  .radial-glow {
+    background: radial-gradient(
+      60% 50% at var(--glow-x, 50%) var(--glow-y, 40%),
+      var(--glow-color, var(--azure)) 0%,
+      transparent 70%
+    );
+    opacity: var(--glow-opacity, 0.14);
+  }
+
+  /* --- Konteyner: markazlangan, moslashuvchan chekka --- */
+  .container-content {
+    width: 100%;
+    max-width: var(--container-content);
+    margin-inline: auto;
+    padding-inline: clamp(1.25rem, 0.5rem + 3.75vw, 4rem);
+  }
+
+  /* --- Bo'limlar orasidagi vertikal ritm (mobil 96px → desktop 200px) --- */
+  .section-gap {
+    padding-block: clamp(6rem, 3rem + 8vw, 12.5rem);
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   5 · KINO DONADORLIGI — butun sayt ustida (GrainOverlay komponenti ishlatadi)
+   --------------------------------------------------------------------------- */
+@layer utilities {
+  .grain-layer {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    pointer-events: none;
+    opacity: var(--grain-opacity);
+    mix-blend-mode: overlay;
+  }
+
+  /* will-change faqat harakat paytida qo'yiladi — bu utilita bilan boshqariladi */
+  .gpu {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   6 · TOOL MARQUEE — Skills bo'limidagi jihoz lentasi (Blueprint §4)
+   Ro'yxat ikki marta takrorlanadi; -50% siljish uzuksiz halqa beradi.
+   --------------------------------------------------------------------------- */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@layer utilities {
+  .animate-marquee {
+    animation: marquee var(--marquee-duration, 42s) linear infinite;
+  }
+
+  /* Chekkalarni yumshoq eritish — lenta kadr ichidan chiqib kelayotgandek */
+  .marquee-mask {
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 7%,
+      #000 93%,
+      transparent
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 7%,
+      #000 93%,
+      transparent
+    );
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   7 · LOOP CAROUSEL — faol kadr nuri va ko'tarilish (Blueprint §8)
+   Transform imperativ (JS), bu yerda faqat nur/chegara/hover.
+   --------------------------------------------------------------------------- */
+@layer components {
+  .carousel-card {
+    transition:
+      box-shadow 400ms var(--ease-expo),
+      border-color 400ms var(--ease-expo),
+      transform 300ms var(--ease-expo);
+  }
+
+  [data-active="true"] .carousel-card {
+    border-color: color-mix(in oklch, var(--accent) 40%, transparent);
+    box-shadow:
+      0 30px 80px oklch(0% 0 0 / 0.6),
+      0 0 70px color-mix(in oklch, var(--accent) 26%, transparent);
+  }
+
+  /* Faol kadr hoverda biroz ko'tariladi */
+  [data-active="true"] .carousel-card:hover {
+    transform: translateY(-10px);
+  }
+}

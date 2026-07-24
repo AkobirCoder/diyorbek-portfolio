@@ -1,0 +1,147 @@
+{
+  "meta": {
+    "homeTitle": "Diyorbek Zarifboyev — Videomaker | Toshkent",
+    "homeDescription": "Toshkentda ishlaydigan videomaker. Brendlar uchun kinematik video, reklama va Reels — g'oyadan yakuniy montajgacha bir qo'lda."
+  },
+  "nav": {
+    "about": "Men haqimda",
+    "skills": "Mahorat",
+    "work": "Ishlar",
+    "journey": "Yo'l",
+    "contact": "Aloqa",
+    "cta": "Loyiha boshlash",
+    "menu": "Menyu",
+    "openMenu": "Menyuni ochish",
+    "closeMenu": "Menyuni yopish",
+    "language": "Til",
+    "languageFull": {
+      "uz": "O'zbekcha",
+      "ru": "Ruscha",
+      "en": "Inglizcha"
+    }
+  },
+  "a11y": {
+    "skipToContent": "Asosiy kontentga o'tish",
+    "backToTop": "Yuqoriga qaytish",
+    "home": "Bosh sahifa"
+  },
+  "hero": {
+    "role": "Videomaker",
+    "locationLabel": "Joylashuv",
+    "location": "Toshkent · Xalqaro",
+    "intro": "Brendlar uchun kino sifatida video. G'oyadan yakuniy montajgacha — bir qo'lda.",
+    "cta": "Loyiha boshlash",
+    "reel": "Showreel",
+    "backdropWord": "VIDEOMAKER",
+    "portraitAlt": "Diyorbek Zarifboyev — videomaker, kinokamera bilan to'liq bo'y portret",
+    "stats": {
+      "projects": "Loyiha",
+      "clients": "Mijoz",
+      "years": "Yil tajriba"
+    }
+  },
+  "sections": {
+    "about": {
+      "eyebrow": "01 — Men haqimda",
+      "title": "Bir qo'lda — g'oyadan yakuniy kadrgacha.",
+      "description": "Suratga olish, montaj va rang berish — hammasini o'zim qilaman. Bu shuni anglatadiki, siz ko'rgan har bir kadr bitta qarash bilan tanlangan.",
+      "portraitAlt": "Diyorbek Zarifboyev — studiyada portret detali"
+    },
+    "skills": {
+      "eyebrow": "02 — Mahorat",
+      "title": "Kadr ortidagi jarayon.",
+      "description": "Kinematografiyadan rang berishgacha — brend hikoyasini oxirigacha olib boradigan to'liq mahorat.",
+      "tools": "Jihozlar va dasturlar"
+    },
+    "work": {
+      "eyebrow": "03 — Ishlar",
+      "title": "Tanlangan ishlar.",
+      "description": "Brend filmlari, reklama va vertikal kontent. Har biri — alohida hikoya."
+    },
+    "journey": {
+      "eyebrow": "04 — Yo'l",
+      "title": "Kameradan brendlargacha.",
+      "description": "2022-yildan bugungacha — o'sish va o'rganish yo'li."
+    },
+    "contact": {
+      "eyebrow": "05 — Aloqa",
+      "title": "Keling, birga ishlaymiz.",
+      "description": "Loyihangiz haqida qisqacha yozing — javob beraman."
+    }
+  },
+  "work": {
+    "filters": {
+      "all": "Hammasi",
+      "brand": "Brend",
+      "fashion": "Moda",
+      "reels": "Reels"
+    },
+    "category": {
+      "brand": "Brend film",
+      "fashion": "Moda",
+      "reels": "Reels"
+    },
+    "viewCase": "Loyihani ochish",
+    "allWork": "Barcha ishlar",
+    "watch": "Ko'rish",
+    "filterAria": "Loyihalarni toifa bo'yicha filtrlash",
+    "modalClose": "Yopish",
+    "openInTelegram": "Telegramda ochish",
+    "pageEyebrow": "Portfolio",
+    "pageTitle": "Barcha ishlar",
+    "pageDescription": "Brend filmlari, reklama va vertikal kontent — har biri alohida hikoya.",
+    "metaTitle": "Ishlar — brend filmlari, reklama, Reels",
+    "metaDescription": "Diyorbek Zarifboyev portfoliosi — brend filmlari, reklama roliklari va vertikal Reels.",
+    "carouselLabel": "Tanlangan loyihalar",
+    "carouselPrev": "Oldingi loyiha",
+    "carouselNext": "Keyingi loyiha"
+  },
+  "case": {
+    "backToWork": "Barcha ishlar",
+    "about": "Loyiha haqida",
+    "approach": "Yondashuv",
+    "gallery": "Galereya",
+    "details": "Ma'lumot",
+    "next": "Keyingi loyiha",
+    "metaClient": "Mijoz",
+    "metaCategory": "Toifa",
+    "metaYear": "Yil",
+    "metaFormat": "Format",
+    "lightboxClose": "Yopish",
+    "lightboxPrev": "Oldingi",
+    "lightboxNext": "Keyingi"
+  },
+  "brief": {
+    "name": "Ism",
+    "namePlaceholder": "Ismingiz",
+    "email": "Email",
+    "emailPlaceholder": "siz@example.com",
+    "projectType": "Loyiha turi",
+    "projectTypePlaceholder": "Tanlang",
+    "projectTypeOptions": {
+      "brand": "Brend film",
+      "commercial": "Reklama",
+      "reels": "Reels",
+      "fashion": "Moda / go'zallik",
+      "other": "Boshqa"
+    },
+    "message": "Loyiha haqida",
+    "messagePlaceholder": "Loyihangiz haqida qisqacha yozing — maqsad, format, muddat...",
+    "submit": "So'rov yuborish",
+    "submitting": "Yuborilmoqda...",
+    "success": "Rahmat! So'rovingiz yuborildi — tez orada bog'lanaman.",
+    "error": "Yuborishda xatolik. Keyinroq urinib ko'ring yoki quyidagi kanallar orqali yozing.",
+    "channelsTitle": "Yoki to'g'ridan-to'g'ri",
+    "errName": "Ismingizni kiriting.",
+    "errEmail": "To'g'ri email manzilini kiriting.",
+    "errMessage": "Loyiha haqida bir necha so'z yozing."
+  },
+  "footer": {
+    "tagline": "Brendlar uchun kino sifatida video.",
+    "navTitle": "Bo'limlar",
+    "contactTitle": "Bog'lanish",
+    "socialTitle": "Ijtimoiy",
+    "madeIn": "Toshkentda ishlab chiqilgan",
+    "rights": "Barcha huquqlar himoyalangan"
+  }
+}

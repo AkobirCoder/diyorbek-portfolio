@@ -1,0 +1,147 @@
+{
+  "meta": {
+    "homeTitle": "Diyorbek Zarifboyev — Videomaker | Tashkent, Uzbekistan",
+    "homeDescription": "Tashkent-based videomaker. Cinematic video for brands, commercials and Reels — from idea to final cut, in one pair of hands."
+  },
+  "nav": {
+    "about": "About",
+    "skills": "Craft",
+    "work": "Work",
+    "journey": "Journey",
+    "contact": "Contact",
+    "cta": "Start a project",
+    "menu": "Menu",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "language": "Language",
+    "languageFull": {
+      "uz": "Uzbek",
+      "ru": "Russian",
+      "en": "English"
+    }
+  },
+  "a11y": {
+    "skipToContent": "Skip to main content",
+    "backToTop": "Back to top",
+    "home": "Home"
+  },
+  "hero": {
+    "role": "Videomaker",
+    "locationLabel": "Location",
+    "location": "Tashkent · Worldwide",
+    "intro": "Cinema-grade video for brands. From idea to final cut — in one pair of hands.",
+    "cta": "Start a project",
+    "reel": "Showreel",
+    "backdropWord": "VIDEOMAKER",
+    "portraitAlt": "Diyorbek Zarifboyev — videomaker, full-length portrait holding a cinema camera",
+    "stats": {
+      "projects": "Projects",
+      "clients": "Clients",
+      "years": "Years"
+    }
+  },
+  "sections": {
+    "about": {
+      "eyebrow": "01 — About",
+      "title": "One pair of hands — from idea to the final frame.",
+      "description": "Shooting, editing and color — I do it all myself. That means every frame you see was chosen with a single vision.",
+      "portraitAlt": "Diyorbek Zarifboyev — studio portrait detail"
+    },
+    "skills": {
+      "eyebrow": "02 — Craft",
+      "title": "The process behind the frame.",
+      "description": "From cinematography to color grading — the full craft that carries a brand story all the way through.",
+      "tools": "Tools & software"
+    },
+    "work": {
+      "eyebrow": "03 — Work",
+      "title": "Selected work.",
+      "description": "Brand films, commercials and vertical content. Each one its own story."
+    },
+    "journey": {
+      "eyebrow": "04 — Journey",
+      "title": "From a camera to brands.",
+      "description": "From 2022 to today — a path of growth and learning."
+    },
+    "contact": {
+      "eyebrow": "05 — Contact",
+      "title": "Let's work together.",
+      "description": "Tell me briefly about your project — I'll get back to you."
+    }
+  },
+  "work": {
+    "filters": {
+      "all": "All",
+      "brand": "Brand",
+      "fashion": "Fashion",
+      "reels": "Reels"
+    },
+    "category": {
+      "brand": "Brand film",
+      "fashion": "Fashion",
+      "reels": "Reels"
+    },
+    "viewCase": "View project",
+    "allWork": "All work",
+    "watch": "Watch",
+    "filterAria": "Filter projects by category",
+    "modalClose": "Close",
+    "openInTelegram": "Open in Telegram",
+    "pageEyebrow": "Portfolio",
+    "pageTitle": "All work",
+    "pageDescription": "Brand films, commercials and vertical content — each one its own story.",
+    "metaTitle": "Work — brand films, commercials, Reels",
+    "metaDescription": "Diyorbek Zarifboyev's portfolio — brand films, commercials and vertical Reels.",
+    "carouselLabel": "Selected projects",
+    "carouselPrev": "Previous project",
+    "carouselNext": "Next project"
+  },
+  "case": {
+    "backToWork": "All work",
+    "about": "About the project",
+    "approach": "Approach",
+    "gallery": "Gallery",
+    "details": "Details",
+    "next": "Next project",
+    "metaClient": "Client",
+    "metaCategory": "Category",
+    "metaYear": "Year",
+    "metaFormat": "Format",
+    "lightboxClose": "Close",
+    "lightboxPrev": "Previous",
+    "lightboxNext": "Next"
+  },
+  "brief": {
+    "name": "Name",
+    "namePlaceholder": "Your name",
+    "email": "Email",
+    "emailPlaceholder": "you@example.com",
+    "projectType": "Project type",
+    "projectTypePlaceholder": "Select",
+    "projectTypeOptions": {
+      "brand": "Brand film",
+      "commercial": "Commercial",
+      "reels": "Reels",
+      "fashion": "Fashion / beauty",
+      "other": "Other"
+    },
+    "message": "About the project",
+    "messagePlaceholder": "Briefly about your project — goal, format, timeline...",
+    "submit": "Send request",
+    "submitting": "Sending...",
+    "success": "Thank you! Your request was sent — I'll be in touch soon.",
+    "error": "Something went wrong. Please try again later or reach out via the channels below.",
+    "channelsTitle": "Or directly",
+    "errName": "Please enter your name.",
+    "errEmail": "Please enter a valid email.",
+    "errMessage": "Please write a few words about the project."
+  },
+  "footer": {
+    "tagline": "Cinema-grade video for brands.",
+    "navTitle": "Sections",
+    "contactTitle": "Get in touch",
+    "socialTitle": "Social",
+    "madeIn": "Made in Tashkent",
+    "rights": "All rights reserved"
+  }
+}
