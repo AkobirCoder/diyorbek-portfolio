@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "motion/react";
+import { m } from "motion/react";
 import { cn } from "@/lib/utils";
 import { ease, revealViewport } from "@/lib/motion-tokens";
 import { useReducedMotion } from "@/hooks/use-reduced-motion";
@@ -25,7 +25,7 @@ export function TimelineItem({
     <li className="relative pl-14 md:grid md:grid-cols-2 md:gap-x-16 md:pl-0">
       {/* Nuqta — chiziq ustida */}
       <span className="absolute left-2 top-1.5 z-[1] -translate-x-1/2 md:left-1/2">
-        <motion.span
+        <m.span
           className="relative grid h-4 w-4 place-items-center rounded-full border-2 border-accent bg-bg"
           initial={reduced ? undefined : { scale: 0 }}
           whileInView={reduced ? undefined : { scale: 1 }}
@@ -34,7 +34,7 @@ export function TimelineItem({
         >
           <span className="h-1.5 w-1.5 rounded-full bg-accent" />
           {reduced ? null : (
-            <motion.span
+            <m.span
               aria-hidden="true"
               className="absolute inset-0 rounded-full border border-accent"
               initial={{ opacity: 0.7, scale: 0.6 }}
@@ -43,11 +43,11 @@ export function TimelineItem({
               transition={{ duration: 0.9, ease: ease.outExpo }}
             />
           )}
-        </motion.span>
+        </m.span>
       </span>
 
       {/* Kontent */}
-      <motion.div
+      <m.div
         className={cn(
           "flex flex-col gap-2 pb-14 md:pb-20",
           isRight
@@ -66,7 +66,7 @@ export function TimelineItem({
         <p className="max-w-[42ch] text-body text-fg-muted text-pretty">
           {milestone.description}
         </p>
-      </motion.div>
+      </m.div>
     </li>
   );
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useScroll, useSpring } from "motion/react";
+import { m, useScroll, useSpring } from "motion/react";
 import { cn } from "@/lib/utils";
 import { useReducedMotion } from "@/hooks/use-reduced-motion";
 
@@ -26,7 +26,7 @@ export function TimelineProgress({ className }: { className?: string }) {
 
   return (
     <div ref={ref} aria-hidden="true" className={cn("w-px bg-border", className)}>
-      <motion.div
+      <m.div
         className="h-full w-full origin-top bg-gradient-to-b from-accent via-accent to-azure"
         style={{ scaleY: reduced ? 1 : scaleY }}
       />

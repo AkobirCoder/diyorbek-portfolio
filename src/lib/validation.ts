@@ -22,8 +22,12 @@ export const briefSchema = z.object({
     .optional()
     .or(z.literal("")),
   message: z.string().trim().min(10).max(2000),
-  /** Honeypot — ko'rinmas maydon; odam uni to'ldirmaydi. */
-  company: z.string().max(0).optional(),
+  /**
+   * Honeypot — ko'rinmas maydon; odam bo'sh qoldiradi. Bot to'ldirsa, sxema
+   * uni QABUL qiladi (rad etmaydi), lekin route jimgina tashlab yuboradi
+   * (bot muvaffaqiyat deb o'ylaydi va moslashmaydi).
+   */
+  company: z.string().max(200).optional(),
 });
 
 export type BriefInput = z.infer<typeof briefSchema>;

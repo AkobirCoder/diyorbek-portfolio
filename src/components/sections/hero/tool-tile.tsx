@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useTransform } from "motion/react";
+import { m, useTransform } from "motion/react";
 import type { Tool } from "@/content/tools";
 import type { MouseParallax } from "@/hooks/use-mouse-parallax";
 import { toolIcons } from "./tool-icons";
@@ -46,9 +46,9 @@ export function ToolTile({
       style={{ left: `${pos.x}%`, top: `${pos.y}%` }}
     >
       {/* Parallaks qatlami */}
-      <motion.div style={reduced ? undefined : { x, y }}>
+      <m.div style={reduced ? undefined : { x, y }}>
         {/* Kirish + suzish qatlami */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, scale: 0.7, filter: "blur(8px)" }}
           animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
           transition={{
@@ -57,7 +57,7 @@ export function ToolTile({
             ease: ease.outExpo,
           }}
         >
-          <motion.div
+          <m.div
             animate={
               reduced ? undefined : { y: [0, -14, 0], rotate: [-3.5, 3.5, -3.5] }
             }
@@ -87,9 +87,9 @@ export function ToolTile({
             >
               <Icon className="h-[62%] w-[62%]" />
             </div>
-          </motion.div>
-        </motion.div>
-      </motion.div>
+          </m.div>
+        </m.div>
+      </m.div>
     </div>
   );
 }

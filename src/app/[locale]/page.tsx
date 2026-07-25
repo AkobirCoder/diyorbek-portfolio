@@ -1,19 +1,36 @@
+import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { Section } from "@/components/shared/section";
-import { SectionHeading } from "@/components/shared/section-heading";
+import { buildMetadata } from "@/lib/seo/metadata";
 import { Hero } from "@/components/sections/hero/hero";
 import { About } from "@/components/sections/about/about";
 import { Skills } from "@/components/sections/skills/skills";
 import { Work } from "@/components/sections/work/work";
 import { Journey } from "@/components/sections/journey/journey";
-import { navSections } from "@/content/navigation";
+import { Contact } from "@/components/sections/contact/contact";
 import { site, LOCALES, DEFAULT_LOCALE, type Locale } from "@/content/site";
 import { getSkills, getAllProjects, getMilestones } from "@/lib/content";
 
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const activeLocale: Locale = (LOCALES as readonly string[]).includes(locale)
+    ? (locale as Locale)
+    : DEFAULT_LOCALE;
+  const t = await getTranslations({ locale, namespace: "meta" });
+  return buildMetadata({
+    locale: activeLocale,
+    path: "",
+    title: t("homeTitle"),
+    description: t("homeDescription"),
+  });
+}
+
 /**
- * Bosh sahifa.
- * Hero (3), About + Skills (5) to'liq. Work/Journey/Contact langarlari
- * keyingi bosqichlarda shu joyga quriladi.
+ * Bosh sahifa — barcha bo'limlar (Blueprint §1, 1-qatlam):
+ * Hero · About · Skills · Work · Journey · Contact.
  */
 export default async function HomePage({
   params,
@@ -47,9 +64,6 @@ export default async function HomePage({
     prev: t("work.carouselPrev"),
     next: t("work.carouselNext"),
   };
-
-  /** Hali ichki UI qurilmagan langarlar (keyingi bosqichlar). */
-  const pendingSections = navSections.filter((s) => s.id === "contact");
 
   return (
     <>
@@ -107,48 +121,14 @@ export default async function HomePage({
         milestones={milestones}
       />
 
-      {/* ---- Qolgan langarlar (haqiqiy sarlavhalar; ichki UI keyingi bosqichlarda) ---- */}
-      {pendingSections.map((section) => {
-        const titleId = `${section.id}-title`;
-        return (
-          <Section key={section.id} id={section.id} labelledBy={titleId}>
-            <SectionHeading
-              titleId={titleId}
-              eyebrow={t(`sections.${section.key}.eyebrow`)}
-              title={t(`sections.${section.key}.title`)}
-              description={t(`sections.${section.key}.description`)}
-            />
-
-            {/* Contact bo'limi — haqiqiy aloqa kanallari (deyarli yakuniy) */}
-            {section.id === "contact" && (
-              <ul className="mt-12 grid gap-px overflow-hidden rounded-glass border border-border bg-border sm:grid-cols-2">
-                {[
-                  { label: "Telegram", value: site.social.telegram.handle, href: site.social.telegram.url },
-                  { label: "Instagram", value: site.social.instagram.handle, href: site.social.instagram.url },
-                  { label: "Email", value: site.contact.email, href: `mailto:${site.contact.email}` },
-                  { label: "Telefon", value: site.contact.phone, href: `tel:${site.contact.phoneHref}` },
-                ].map((channel) => (
-                  <li key={channel.label}>
-                    <a
-                      href={channel.href}
-                      target={channel.href.startsWith("http") ? "_blank" : undefined}
-                      rel={channel.href.startsWith("http") ? "noreferrer" : undefined}
-                      className="group flex items-center justify-between gap-4 bg-bg px-6 py-6 transition-colors duration-[240ms] hover:bg-surface focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-accent"
-                    >
-                      <span className="font-mono text-label uppercase tracking-[0.14em] text-fg-subtle">
-                        {channel.label}
-                      </span>
-                      <span className="text-body text-fg transition-colors group-hover:text-accent">
-                        {channel.value}
-                      </span>
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </Section>
-        );
-      })}
+      <Contact
+        id="contact"
+        labelledBy="contact-title"
+        eyebrow={t("sections.contact.eyebrow")}
+        title={t("sections.contact.title")}
+        description={t("sections.contact.description")}
+        channelsTitle={t("brief.channelsTitle")}
+      />
     </>
   );
 }

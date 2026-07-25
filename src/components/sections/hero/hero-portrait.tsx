@@ -1,9 +1,9 @@
 "use client";
 
-import { motion, useTransform } from "motion/react";
+import { m, useTransform } from "motion/react";
 import type { MouseParallax } from "@/hooks/use-mouse-parallax";
 import { portraitLqip } from "@/content/portrait-lqip";
-import { duration, ease } from "@/lib/motion-tokens";
+import { ease } from "@/lib/motion-tokens";
 
 const NATURAL_WIDTH = 1085;
 const NATURAL_HEIGHT = 1450;
@@ -46,19 +46,23 @@ export function HeroPortrait({
         fetchPriority="high"
       />
 
-      <div className="pointer-events-none absolute inset-0 flex items-end justify-center">
-        <motion.div
-          className="relative h-[48svh] w-auto sm:h-[64svh] lg:h-[76svh]"
+      {/* Mobilda portret yuqoriroq ko'tariladi (pb) — yuz o'rta bandda,
+         ko'zga tashlanadigan bo'ladi; desktopda pastga tayanadi. */}
+      <div className="pointer-events-none absolute inset-0 flex items-end justify-center pb-[11svh] sm:pb-0">
+        <m.div
+          className="relative h-[56svh] w-auto sm:h-[64svh] lg:h-[76svh]"
           style={
             reduced
               ? undefined
               : { x, y, rotateY, rotateX, transformPerspective: 1400 }
           }
-          initial={{ opacity: 0, y: 60, scale: 1.04 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
+          /* Faqat kichrayish (opacity/y yo'q) — SSR'da to'liq bo'yaladi (erta
+             LCP) va parallaks `y` bilan to'qnashmaydi. Kinematik zoom-out. */
+          initial={reduced ? { scale: 1 } : { scale: 1.06 }}
+          animate={{ scale: 1 }}
           transition={{
-            duration: reduced ? 0.2 : duration.cinema,
-            delay: reduced ? 0 : 0.45,
+            duration: reduced ? 0.2 : 1.0,
+            delay: reduced ? 0 : 0.1,
             ease: ease.outExpo,
           }}
         >
@@ -95,7 +99,7 @@ export function HeroPortrait({
               }}
             />
           </picture>
-        </motion.div>
+        </m.div>
       </div>
     </>
   );

@@ -1,8 +1,8 @@
 "use client";
 
-import { motion, useTransform } from "motion/react";
+import { m, useTransform } from "motion/react";
 import type { MouseParallax } from "@/hooks/use-mouse-parallax";
-import { duration, ease } from "@/lib/motion-tokens";
+import { ease } from "@/lib/motion-tokens";
 
 /**
  * HeroBackdropType — portret ortidagi ulkan xira yozuv (Blueprint §4, §6).
@@ -26,15 +26,15 @@ export function HeroBackdropType({
   const y = useTransform(parallax.y, (v) => v * -6);
 
   return (
-    <motion.div
+    <m.div
       aria-hidden="true"
       className="pointer-events-none absolute inset-x-0 top-[42%] flex -translate-y-1/2 justify-center"
       style={reduced ? undefined : { x, y }}
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{
-        duration: reduced ? 0.2 : duration.cinema,
-        delay: reduced ? 0 : 0.4,
+        duration: reduced ? 0.2 : 0.9,
+        delay: reduced ? 0 : 0.15,
         ease: ease.outExpo,
       }}
     >
@@ -44,6 +44,6 @@ export function HeroBackdropType({
       >
         {text}
       </span>
-    </motion.div>
+    </m.div>
   );
 }

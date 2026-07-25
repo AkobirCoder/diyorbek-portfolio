@@ -11,7 +11,8 @@ export const fontDisplay = Unbounded({
   subsets: ["latin", "cyrillic"],
   variable: "--font-display",
   display: "swap",
-  weight: ["200", "300", "400", "500", "600", "700"],
+  // Variable — bitta fayl barcha og'irliklarni beradi (6 ta static o'rniga),
+  // shrift tezroq yuklanadi va LCP matni ertaroq bo'yaladi.
   adjustFontFallback: true,
 });
 

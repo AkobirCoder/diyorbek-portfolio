@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useTransform } from "motion/react";
+import { m, useTransform } from "motion/react";
 import type { MouseParallax } from "@/hooks/use-mouse-parallax";
 
 /**
@@ -34,13 +34,13 @@ export function HeroLight({
   };
 
   return (
-    <motion.div
+    <m.div
       aria-hidden="true"
       className="pointer-events-none absolute inset-0 overflow-hidden"
       style={reduced ? undefined : { x, y }}
     >
       {/* Subyekt ortidagi asosiy ko'k nur */}
-      <motion.div
+      <m.div
         className="absolute left-1/2 top-[26%] h-[75vmax] w-[75vmax] -translate-x-1/2 -translate-y-1/2 rounded-full"
         style={{
           background:
@@ -52,7 +52,7 @@ export function HeroLight({
       />
 
       {/* Iliq urg'u nuri — pastki chap */}
-      <motion.div
+      <m.div
         className="absolute left-[12%] top-[76%] h-[52vmax] w-[52vmax] -translate-x-1/2 -translate-y-1/2 rounded-full"
         style={{
           background:
@@ -80,6 +80,6 @@ export function HeroLight({
             "linear-gradient(to top, var(--bg) 4%, color-mix(in oklch, var(--bg) 70%, transparent) 42%, transparent 100%)",
         }}
       />
-    </motion.div>
+    </m.div>
   );
 }

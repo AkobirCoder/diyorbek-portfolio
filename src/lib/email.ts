@@ -17,7 +17,7 @@ function escapeHtml(input: string): string {
 export async function sendBriefEmail(brief: BriefPayload): Promise<boolean> {
   const key = process.env.RESEND_API_KEY;
   const from = process.env.CONTACT_FROM;
-  const to = process.env.CONTACT_TO ?? site.contact.email;
+  const to = process.env.CONTACT_TO_EMAIL ?? site.contact.email;
   if (!key || !from) return false;
 
   const rows: Array<[string, string]> = [

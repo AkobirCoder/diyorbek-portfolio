@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "motion/react";
+import { m } from "motion/react";
 import { Container } from "@/components/shared/container";
 import { AnchorButton } from "@/components/shared/anchor-button";
 import { StatRow, type StatItem } from "@/components/shared/stat-row";
@@ -68,6 +68,18 @@ export function Hero({
     },
   });
 
+  // Ism — LCP elementi. FAQAT transform (opacity yo'q), shuning uchun SSR'da
+  // to'liq bo'yalgan holda keladi va LCP erta qayd etiladi (Blueprint §12).
+  const nameReveal = (delay: number) => ({
+    initial: reduced ? { y: 0 } : { y: "0.32em" },
+    animate: { y: 0 },
+    transition: {
+      duration: reduced ? 0.2 : 0.8,
+      delay: reduced ? 0 : delay,
+      ease: ease.outExpo,
+    },
+  });
+
   return (
     <section
       id="top"
@@ -116,47 +128,47 @@ export function Hero({
       >
         {/* YUQORI — unvon + ism */}
         <div className="flex flex-col gap-5">
-          <motion.p
+          <m.p
             className="flex items-center gap-3 font-mono text-label uppercase tracking-[0.16em] text-fg-muted"
-            {...fadeUp(0.9)}
+            {...fadeUp(0.12)}
           >
             <span aria-hidden="true" className="h-px w-8 bg-accent/80" />
             {eyebrow}
-          </motion.p>
+          </m.p>
 
           <h1 className="flex flex-col font-display font-light leading-[0.92] tracking-[-0.03em] text-[clamp(2.5rem,0.9rem+5.4vw,6.25rem)]">
-            <motion.span className="text-fg" {...fadeUp(1.0)}>
+            <m.span className="block text-fg" {...nameReveal(0.1)}>
               {firstName}
-            </motion.span>
-            <motion.span className="text-fg-muted" {...fadeUp(1.1)}>
+            </m.span>
+            <m.span className="block text-fg-muted" {...nameReveal(0.18)}>
               {lastName}
-            </motion.span>
+            </m.span>
           </h1>
         </div>
 
         {/* PAST — tavsif/CTA (chap) + statistika (o'ng) */}
         <div className="flex flex-col gap-10 sm:gap-12 lg:flex-row lg:items-end lg:justify-between lg:gap-16">
-          <motion.div
+          <m.div
             className="flex max-w-[40ch] flex-col gap-7"
-            {...fadeUp(1.25)}
+            {...fadeUp(0.46)}
           >
             <p className="text-body-lg text-fg-muted">{intro}</p>
             <div className="flex flex-wrap items-center gap-3">
               <AnchorButton targetId="contact" variant="primary" size="lg">
                 {ctaLabel}
               </AnchorButton>
-              <AnchorButton targetId="showreel" variant="glass" size="lg">
+              <AnchorButton targetId="work" variant="glass" size="lg">
                 {reelLabel}
               </AnchorButton>
             </div>
-          </motion.div>
+          </m.div>
 
-          <motion.div className="shrink-0" {...fadeUp(1.45)}>
+          <m.div className="shrink-0" {...fadeUp(0.58)}>
             <StatRow
               items={stats}
               className="gap-x-8 sm:gap-x-12 lg:justify-end"
             />
-          </motion.div>
+          </m.div>
         </div>
       </Container>
 

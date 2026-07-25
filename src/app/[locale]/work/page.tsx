@@ -5,7 +5,14 @@ import { Eyebrow } from "@/components/shared/eyebrow";
 import { ProjectShowcase } from "@/components/work/project-showcase";
 import { buildShowcaseLabels } from "@/components/work/showcase-labels";
 import { getAllProjects } from "@/lib/content";
+import { buildMetadata } from "@/lib/seo/metadata";
 import { LOCALES, DEFAULT_LOCALE, type Locale } from "@/content/site";
+
+function narrow(locale: string): Locale {
+  return (LOCALES as readonly string[]).includes(locale)
+    ? (locale as Locale)
+    : DEFAULT_LOCALE;
+}
 
 export async function generateMetadata({
   params,
@@ -14,10 +21,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "work" });
-  return {
+  return buildMetadata({
+    locale: narrow(locale),
+    path: "/work",
     title: t("metaTitle"),
     description: t("metaDescription"),
-  };
+  });
 }
 
 /**

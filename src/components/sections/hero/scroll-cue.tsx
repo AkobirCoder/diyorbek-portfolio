@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "motion/react";
+import { m } from "motion/react";
 import { ease } from "@/lib/motion-tokens";
 
 /**
@@ -9,20 +9,20 @@ import { ease } from "@/lib/motion-tokens";
  */
 export function ScrollCue({ reduced }: { reduced: boolean }) {
   return (
-    <motion.div
+    <m.div
       aria-hidden="true"
       className="pointer-events-none absolute inset-x-0 bottom-6 flex justify-center"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{
         duration: reduced ? 0.2 : 0.8,
-        delay: reduced ? 0 : 2.4,
+        delay: reduced ? 0 : 1.05,
         ease: ease.outExpo,
       }}
     >
       <div className="relative h-10 w-px overflow-hidden bg-border">
         {!reduced && (
-          <motion.div
+          <m.div
             className="absolute inset-x-0 h-4 bg-accent"
             animate={{ y: ["-100%", "250%"] }}
             transition={{
@@ -33,6 +33,6 @@ export function ScrollCue({ reduced }: { reduced: boolean }) {
           />
         )}
       </div>
-    </motion.div>
+    </m.div>
   );
 }

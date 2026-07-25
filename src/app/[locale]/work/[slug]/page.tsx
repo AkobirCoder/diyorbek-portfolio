@@ -9,6 +9,9 @@ import { CaseMeta } from "@/components/work/case/case-meta";
 import { NextProject } from "@/components/work/case/next-project";
 import { getAllProjects, getProjectBySlug, getProjectSlugs } from "@/lib/content";
 import { LOCALES, DEFAULT_LOCALE, type Locale } from "@/content/site";
+import { buildMetadata, localizedUrl } from "@/lib/seo/metadata";
+import { JsonLd } from "@/components/shared/json-ld";
+import { videoObjectJsonLd, breadcrumbJsonLd } from "@/lib/seo/json-ld";
 
 function narrow(locale: string): Locale {
   return (LOCALES as readonly string[]).includes(locale)
@@ -28,10 +31,12 @@ export async function generateMetadata({
   const { locale, slug } = await params;
   const project = getProjectBySlug(slug, narrow(locale));
   if (!project) return {};
-  return {
+  return buildMetadata({
+    locale: narrow(locale),
+    path: `/work/${slug}`,
     title: `${project.title} — ${project.client}`,
     description: project.teaser,
-  };
+  });
 }
 
 /**
@@ -61,8 +66,18 @@ export default async function CaseStudyPage({
     openInTelegram: t("work.openInTelegram"),
   };
 
+  const breadcrumb = breadcrumbJsonLd([
+    { name: t("a11y.home"), url: localizedUrl(activeLocale) },
+    { name: t("work.pageTitle"), url: localizedUrl(activeLocale, "/work") },
+    {
+      name: project.title,
+      url: localizedUrl(activeLocale, `/work/${slug}`),
+    },
+  ]);
+
   return (
     <article className="pb-24 lg:pb-32">
+      <JsonLd data={[videoObjectJsonLd(project, activeLocale), breadcrumb]} />
       <CaseHero
         project={project}
         categoryLabel={categoryLabel}

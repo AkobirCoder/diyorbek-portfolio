@@ -1,7 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { motion } from "motion/react";
+import { m } from "motion/react";
 import { useReducedMotion } from "@/hooks/use-reduced-motion";
 import { ease, revealViewport } from "@/lib/motion-tokens";
 
@@ -24,7 +24,7 @@ export function Reveal({
   const reduced = useReducedMotion();
 
   return (
-    <motion.div
+    <m.div
       className={className}
       initial={reduced ? { opacity: 0 } : { opacity: 0, y }}
       whileInView={reduced ? { opacity: 1 } : { opacity: 1, y: 0 }}
@@ -36,6 +36,6 @@ export function Reveal({
       }}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }
