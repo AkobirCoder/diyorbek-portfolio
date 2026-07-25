@@ -7,7 +7,7 @@ export const tashkentFashionWeek: LocalizedProject = {
   category: "reels",
   format: "9:16",
   year: 2026,
-  cover: "/work/tashkent-fashion-week/cover.jpg",
+  cover: "/work/frontend-ozi-nima/frontend-ozi-nima.jpg",
   telegramUrl: "https://t.me/dicouz/110",
   featured: false,
   title: {

@@ -7,7 +7,7 @@ export const osiyoBank: LocalizedProject = {
   category: "brand",
   format: "16:9",
   year: 2025,
-  cover: "/work/osiyo-bank/cover.jpg",
+  cover: "/work/girl-standing-still-facing-camera/girl-standing-still-facing-camera.jpg",
   telegramUrl: "https://t.me/dicouz/109",
   featured: true,
   title: {

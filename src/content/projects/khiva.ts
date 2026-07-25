@@ -7,7 +7,7 @@ export const technoPark: LocalizedProject = {
   category: "brand",
   format: "16:9",
   year: 2023,
-  cover: "/work/techno-park/cover.jpg",
+  cover: "/work/khiva/khiva.jpg",
   telegramUrl: "https://t.me/dicouz/108",
   featured: false,
   title: {

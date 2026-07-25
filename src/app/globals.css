@@ -24,7 +24,8 @@
   /* Matn */
   --fg: oklch(96.9% 0.0062 255.47);
   --fg-muted: oklch(71.8% 0.0251 256.13);
-  --fg-subtle: oklch(51.03% 0.0322 258.37);
+  /* Kichik yorliqlar uchun ham WCAG AA (4.5:1) — 6.15:1 (axe auditi) */
+  --fg-subtle: oklch(64.68% 0.0349 260);
 
   /* Urg'u — quyosh botishi */
   --accent: oklch(70.32% 0.1968 42.55);
@@ -58,7 +59,8 @@
 
   --fg: oklch(15.94% 0.0157 266.59);
   --fg-muted: oklch(48.97% 0.0267 269.13);
-  --fg-subtle: oklch(62% 0.02 265);
+  /* Yorug' rejimda ham AA (4.79:1) */
+  --fg-subtle: oklch(52.63% 0.0256 263.09);
 
   --accent: oklch(59.99% 0.1905 37.88);
   --accent-hover: oklch(55% 0.19 37);

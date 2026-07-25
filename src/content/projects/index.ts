@@ -7,16 +7,16 @@
  */
 
 import type { LocalizedProject } from "@/types/project";
-import { atlasTextile } from "./atlas-textile";
-import { silkRoadFashion } from "./silk-road-fashion";
-import { zaminCoffee } from "./zamin-coffee";
-import { osiyoBank } from "./osiyo-bank";
-import { oydinBeauty } from "./oydin-beauty";
-import { qadamSneakers } from "./qadam-sneakers";
-import { nurRestaurant } from "./nur-restaurant";
-import { bahorCosmetics } from "./bahor-cosmetics";
-import { technoPark } from "./techno-park";
-import { tashkentFashionWeek } from "./tashkent-fashion-week";
+import { atlasTextile } from "./cinematic-edit-fashion";
+import { silkRoadFashion } from "./woman-in-traditional-uzbek-attire";
+import { zaminCoffee } from "./before-after";
+import { osiyoBank } from "./girl-standing-still-facing-camera";
+import { oydinBeauty } from "./fashion-and-edit";
+import { qadamSneakers } from "./ozi-hech-bir";
+import { nurRestaurant } from "./the-power-of-color-grading";
+import { bahorCosmetics } from "./fashion-motion";
+import { technoPark } from "./khiva";
+import { tashkentFashionWeek } from "./frontend-ozi-nima";
 
 export const projects: readonly LocalizedProject[] = [
   atlasTextile,

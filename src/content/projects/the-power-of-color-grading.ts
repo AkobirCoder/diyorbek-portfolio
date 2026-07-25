@@ -7,7 +7,7 @@ export const nurRestaurant: LocalizedProject = {
   category: "brand",
   format: "16:9",
   year: 2024,
-  cover: "/work/nur-restaurant/cover.jpg",
+  cover: "/work/the-power-of-color-grading/the-power-of-color-grading.png",
   telegramUrl: "https://t.me/dicouz/102",
   featured: false,
   title: {

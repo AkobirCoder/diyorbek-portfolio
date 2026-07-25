@@ -7,7 +7,7 @@ export const silkRoadFashion: LocalizedProject = {
   category: "fashion",
   format: "16:9",
   year: 2025,
-  cover: "/work/silk-road-fashion/cover.jpg",
+  cover: "/work/woman-in-traditional-uzbek-attire/woman-in-traditional-uzbek-attire.jpeg",
   telegramUrl: "https://t.me/dicouz/105",
   featured: true,
   title: {

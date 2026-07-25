@@ -7,7 +7,7 @@ export const zaminCoffee: LocalizedProject = {
   category: "reels",
   format: "9:16",
   year: 2025,
-  cover: "/work/zamin-coffee/cover.jpg",
+  cover: "/work/before-after/before-after.jpg",
   telegramUrl: "https://t.me/dicouz/103",
   featured: true,
   title: {

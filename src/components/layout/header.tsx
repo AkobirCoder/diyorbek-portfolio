@@ -66,15 +66,15 @@ export function Header() {
          qora matn qorong'i Hero ustida o'qilmas edi). */
       data-theme={scrolled ? undefined : "dark"}
       className={cn(
-        "fixed inset-x-0 top-0 z-[70] transition-[background-color,border-color,backdrop-filter] duration-[420ms] ease-[cubic-bezier(0.16,1,0.3,1)]",
+        "fixed inset-x-0 top-0 z-70 transition-[background-color,border-color,backdrop-filter] duration-420ms ease-expo",
         scrolled
-          ? "glass-2 border-b border-border"
+          ? "glass-2 border-b border-border backdrop-blur-lg"
           : "border-b border-transparent bg-transparent",
       )}
     >
       <div
         className={cn(
-          "container-content flex items-center justify-between gap-4 transition-[padding] duration-[420ms] ease-[cubic-bezier(0.16,1,0.3,1)]",
+          "container-content flex items-center justify-between gap-4 transition-[padding] duration-420ms ease-expo",
           scrolled ? "py-3" : "py-5",
         )}
       >

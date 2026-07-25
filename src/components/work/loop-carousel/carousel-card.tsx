@@ -50,20 +50,20 @@ export const CarouselCard = memo(
             fill
             loading="lazy"
             sizes="320px"
-            className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+            className="object-fill transition-transform duration-500 ease-out group-hover:scale-105"
           />
           <div
             aria-hidden="true"
-            className="absolute inset-0 bg-gradient-to-t from-bg via-bg/30 to-transparent"
+            className="absolute inset-0 bg-linear-to-t from-bg via-bg/30 to-transparent"
           />
           <div className="relative mt-auto flex flex-col gap-1.5 p-6">
-            <span className="font-mono text-label uppercase tracking-[0.12em] text-accent">
+            {/* <span className="font-mono text-label uppercase tracking-[0.12em] text-accent">
               {categoryLabel} · {project.year}
-            </span>
-            <span className="font-display text-h2 font-light leading-tight text-fg">
+            </span> */}
+            {/* <span className="font-display text-h2 font-light leading-tight text-fg">
               {project.title}
-            </span>
-            <span className="text-body text-fg-muted">{project.client}</span>
+            </span> */}
+            {/* <span className="text-body text-fg-muted">{project.client}</span> */}
           </div>
         </Link>
       </div>

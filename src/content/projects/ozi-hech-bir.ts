@@ -7,7 +7,7 @@ export const qadamSneakers: LocalizedProject = {
   category: "reels",
   format: "9:16",
   year: 2026,
-  cover: "/work/qadam-sneakers/cover.jpg",
+  cover: "/work/ozi-hech-bir/ozi-hech-bir.jpg",
   telegramUrl: "https://t.me/dicouz/106",
   featured: true,
   title: {

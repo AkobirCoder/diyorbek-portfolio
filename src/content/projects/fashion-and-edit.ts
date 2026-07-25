@@ -7,7 +7,7 @@ export const oydinBeauty: LocalizedProject = {
   category: "fashion",
   format: "9:16",
   year: 2025,
-  cover: "/work/oydin-beauty/cover.jpg",
+  cover: "/work/fashion-and-edit/fashion-and-edit.jpg",
   telegramUrl: "https://t.me/dicouz/104",
   featured: true,
   title: {

@@ -7,7 +7,7 @@ export const bahorCosmetics: LocalizedProject = {
   category: "fashion",
   format: "9:16",
   year: 2024,
-  cover: "/work/bahor-cosmetics/cover.jpg",
+  cover: "/work/fashion-motion/fashion-motion.jpg",
   telegramUrl: "https://t.me/dicouz/107",
   featured: false,
   title: {

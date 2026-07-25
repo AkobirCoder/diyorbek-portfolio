@@ -7,7 +7,7 @@ export const atlasTextile: LocalizedProject = {
   category: "brand",
   format: "16:9",
   year: 2024,
-  cover: "/work/atlas-textile/cover.jpg",
+  cover: "/work/cinematic-edit-fashion/cinematic-edit-fashion.jpg",
   telegramUrl: "https://t.me/dicouz/101",
   featured: true,
   title: {
